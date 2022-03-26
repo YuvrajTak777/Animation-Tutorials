@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animation 2</title>
+    <link rel="stylesheet" href="Tut1.css">
+</head>
+<body>
+    <h2>Java Script Animation</h2>
+    <div class="container">
+        <img id = "img" src="https://th.bing.com/th/id/OIP.wDO0EKO7OwMgHo-6xJvBvAHaEK?pid=ImgDet&rs=1" alt="Error">
+        <div class="keys">
+            <div class="up"><button onclick="up()">UP</button></div>
+            <div>
+                <button onclick="left()" >LEFT</button>
+                <button onclick="down()" >DOWN</button>
+                <button onclick="right()" >RIGHT</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        const x = document.getElementById("img");
+        var y1 = 600;
+        // var y2 = 600;
+        var z1=  100;
+        // var z2=  100;
+        function left(){
+            y1 = y1 -10;
+            x.style.left = y1 + 'px';
+        }
+        function right(){
+            y1 = y1 + 10;
+            x.style.left = y1 + 'px';
+        }
+        function up(){
+            z1 = z1 -10;
+            x.style.top = z1 + 'px';
+        }
+        function down(){
+            z1 = z1 + 10;
+            x.style.top = z1 + 'px';
+        }
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

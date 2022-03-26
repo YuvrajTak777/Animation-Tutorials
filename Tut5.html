@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Animation</title>
+    <link rel="stylesheet" href="Tut5.css">
+</head>
+<body>
+    <section class="section">
+        <h2 class="text">MY FIRST ANIMATION FOR TEXT</h2>
+    </section>
+    <script src="anime.min.js"></script>
+    <script>
+        const text = document.querySelector('.text');
+        text.innerHTML = text.textContent.replace(/\S/g, "<span>$&</span>");
+
+        anime.timeline({
+            loop : true
+        })
+        .add({
+           targets : '.text span',
+           translateY : [-600,0],
+           scale : [10,1],
+           opacity : [0,1],
+           easing : "easeOutExpo",
+           duration : 1500,
+           delay : anime.stagger(100),
+        })
+        .add({
+           targets : '.text span',
+           translateX : [0,-1400],
+           scale : [1,1],
+           opacity : [1,0],
+           easing : "easeInExpo",
+           duration : 3000,
+           delay : anime.stagger(100),
+        })
+        .add({
+           targets : '.text span',
+           translateX : [1400,0],
+           scale : [1,1],
+           opacity : [0,1],
+           easing : "easeOutExpo",
+           duration : 3500,
+           delay : anime.stagger(50),
+        })
+        .add({
+           targets : '.text span',
+           translateX : [0,0],
+           scale : [1,50],
+           opacity : [1,0],
+           easing : "easeOutExpo",
+           duration : 2500,
+           delay : anime.stagger(80),
+        })
+
+    </script>
+</body>
+</html>

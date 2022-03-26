@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Popmotion Tutorial 1</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Yeon+Sung&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@700&display=swap');
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        .container{
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: red;
+            overflow: hidden;
+        }
+        h2{
+            font-size: 140px;
+            text-align: center;
+            z-index: 1000;
+            font-weight: 900;
+            color: black;
+        }
+        h2 span{
+            text-transform: uppercase;
+            font-size: 26px;
+            letter-spacing: 12px;
+        }
+        .block{
+            position: absolute;
+            top: 350px;
+            width: 50px;
+            height: 100px;
+            background-color: red;
+            box-shadow: 2px 2px 10px rgb(0, 0, 0) ;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+      <h2><span>My First Animation Using</span><br>Anime JS</h2>
+    </div>
+    <script src="anime.min.js"></script>
+    <script>
+        const container = document.querySelector(".container");
+        for(var i = 0; i<=100;i++){
+        const blocks = document.createElement('div');
+        blocks.classList.add('block');
+        container.appendChild(blocks);
+        }
+        function animateBlocks(){
+            anime({
+                targets : '.block',
+                translateX : function(){
+                    return anime.random(-700,700);
+                },
+                translateY : function(){
+                    return anime.random(-300,300);
+                },
+                scale : function(){
+                    return anime.random(1,5);
+                },
+                easing : 'linear',
+                duration : 3000,
+                delay : anime.stagger(10),
+                complete : animateBlocks,
+            })
+        }
+        animateBlocks();
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookie Box</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Yeon+Sung&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@700&display=swap');
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .container {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            width: 100vw;
+            height: 100vh;
+            background-color: #154700a3;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Nanum Myeongjo', serif;
+
+        }
+
+        #item {
+            /* display: none; */
+            width: 250px;
+            height: 350px;
+            background-color: #f6ffe5;
+            border: 3px solid black;
+            padding: 10px;
+            animation: Anime 4s 1 ease-in-out forwards;
+            animation-delay: 400ms;
+            opacity: 0;
+        }
+
+        @keyframes Anime {
+            0% {
+                opacity: 0;
+                /* display: block; */
+            }
+            
+            100% {
+                /* display: block; */
+                opacity: 0.90;
+            }
+        }
+
+        .form {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 350px;
+            width: 240px;
+            padding: 0px 5px;
+        }
+
+        h2 {
+            font-size: 20px;
+            text-align: center;
+            /* padding: 10px; */
+            margin-bottom: 20px;
+
+        }
+
+        p {
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 16px
+        }
+
+        input {
+            height: 22px;
+            width: 220px;
+            margin: 5px;
+            padding: 5px;
+            border: 2.2px solid green;
+            font-size: 14px;
+            /* font-weight: bold; */
+            color: black;
+            background-color: #68ef684a;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div id="item">
+            <form action="" class="form">
+                <h2>Hello User , Welcome to our website please fill this form for continuing our services.</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur alias expedita sapiente nam ex
+                    corporis aut numquam praesentium eaque, incidunt reprehenderit. Eligendi labore suscipit recusandae.
+                </p>
+                <input type="text" placeholder="User Name">
+                <input type="text" placeholder="User Email Id">
+            </form>
+        </div>
+    </div>
+
+    <script>
+
+    </script>
+</body>
+</html>

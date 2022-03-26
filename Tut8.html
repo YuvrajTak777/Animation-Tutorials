@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animation Examples</title>
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@700&family=Roboto:wght@500&display=swap');
+
+        * {
+            margin: 0px;
+            padding: 0px;
+            overflow: hidden;
+
+        }
+
+        body {
+            width: 100vw;
+            height: 100vh;
+            background-color: aquamarine;
+        }
+
+        .container {
+            position: relative;
+            top: 50px;
+            display: flex;
+            flex-direction: row;
+            width: 1200px;
+            height: 600px;
+            /* justify-content: center; */
+            /* align-items: center; */
+            margin: 0px auto;
+            border: 5px solid rgb(255, 0, 0);
+            background-color: #0e1623;
+        }
+
+        .block,.block2,.block3,.block4 {
+            display: inline-block;
+            position: absolute;
+            top: 230px;
+            left: 440px;
+            width:  300px;
+            height: 150px;
+            background-color: wheat;
+            margin: 0px 10px;
+            /* opacity: 0; */
+            text-align: center;
+            font-family: 'Roboto', sans-serif;
+            color: rgb(255, 0, 0);
+            border: 3px solid black;
+            padding: 10px;
+            border-radius: 30px;
+        }
+        /* #block2{
+            display: none;
+            
+        } */
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="block">
+            <h2>HEAD</h2>
+            <br>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil earum distinctio at minus quia repudiandae veniam temporibus porro sit, aliquid odit quos praesentium sequi nemo</p>
+        </div>
+        <div class="block2">
+            <h2>HEAD2</h2>
+            <br>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil earum distinctio at minus quia repudiandae veniam temporibus porro sit, aliquid odit quos praesentium sequi nemo</p>
+        </div>
+        <div class="block3">
+            <h2>HEAD3</h2>
+            <br>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil earum distinctio at minus quia repudiandae veniam temporibus porro sit, aliquid odit quos praesentium sequi nemo</p>
+        </div>
+        <!-- <div class="block4">
+            <h2>HEAD4</h2>
+            <br>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil earum distinctio at minus quia repudiandae veniam temporibus porro sit, aliquid odit quos praesentium sequi nemo</p>
+        </div> -->
+    </div>
+    <script src="anime.min.js"></script>
+    <script>
+        let animation = anime.timeline({
+            loop: true,
+        })
+        animation
+        //Entry of 1
+        .add({
+            targets :'.block',
+            translateX : [500,0],
+            opacity : [0.7,1],
+            scale : [0.5,1],
+            duration : 1000,
+            easing : 'linear',
+            delay : anime.stagger(10),
+        })
+        //Exit of 3 block
+        .add({
+            targets :'.block3',
+            translateX : [-500,-600],
+            opacity : [0.7,0],
+            scale : [0.5,0.5],
+            duration : 1000,
+            delay : anime.stagger(10),
+            easing : 'linear',
+        })
+        //2 scale Box entry
+        .add({
+            delay : anime.stagger(10),
+            targets :'.block2',
+            translateX : [700,500],
+            opacity : [0.7,0.7],
+            scale : [0.5,0.5],
+            duration : 1000,
+            easing : 'linear',
+        })
+        //Stay read peroid
+        .add({
+            targets :'.block',
+            opacity : [1,1],
+            translateX : [0,0],
+            duration : 1000,
+            delay : anime.stagger(10),
+        })
+        // 1 scale down
+        .add({
+            targets :'.block',
+            translateX : [0,-500],
+            opacity : [1,0.7],
+            scale : [1,0.5],
+            duration : 1000,
+            delay : anime.stagger(10),
+            easing : 'linear',
+        })
+
+        //For Block 2
+        // 2 Block large scaling entry
+        .add({
+            targets :'.block2',
+            delay : anime.stagger(100),
+            translateX : [500,0],
+            opacity : [0.7,1],
+            scale : [0.5,1],
+            duration : 1000,
+            display : 'inline-block',
+            easing : 'linear',
+        })
+        //Entry of secound block
+        .add({
+            targets :'.block3',
+            translateX : [700,500],
+            opacity : [0.7,0.7],
+            delay : anime.stagger(100),
+            scale : [0.5,0.5],
+            duration : 1000,
+            display : 'inline-block',
+            easing : 'linear',
+        })
+        //Stay and read
+        .add({
+            targets :'.block2',
+            display : 'inline-block',
+            opacity : [1,1],
+            translateX : [0,0],
+            delay : anime.stagger(100),
+            duration : 1000,
+        })
+        //exit of 1 block
+        .add({
+            targets :'.block',
+            translateX : [-500,-600],
+            opacity : [0.7,0],
+            scale : [0.5,0.5],
+            duration : 1000,
+            delay : anime.stagger(100),
+            easing : 'linear',
+        })
+        // 2 block scale down
+        .add({
+            targets :'.block2',
+            translateX : [0,-500],
+            opacity : [1,0.7],
+            scale : [1,0.5],
+            duration : 1000,
+            delay : anime.stagger(100),
+            easing : 'linear',
+        })
+
+        //for block 3
+        .add({
+            targets :'.block3',
+            translateX : [500,0],
+            opacity : [0.7,1],
+            scale : [0.5,1],
+            delay : anime.stagger(100),
+            duration : 1000,
+            display : 'inline-block',
+            easing : 'linear',
+        })
+        .add({
+            targets :'.block',
+            translateX : [700,500],
+            opacity : [0.7,0.7],
+            scale : [0.5,0.5],
+            duration : 1000,
+            display : 'inline-block',
+            easing : 'linear',
+        })
+
+        .add({
+            targets :'.block3',
+            display : 'inline-block',
+            opacity : [1,1],
+            translateX : [0,0],
+            duration : 1000,
+        })
+        .add({
+            targets :'.block2',
+            translateX : [-500,-600],
+            opacity : [0.7,0],
+            scale : [0.5,0.5],
+            duration : 1000,
+            easing : 'linear',
+            // delay : anime.stagger(1000),
+        })
+        .add({
+            targets :'.block3',
+            display : 'inline-block',
+            translateX : [0,-500],
+            opacity : [1,0.7],
+            scale : [1,0.5],
+            duration : 1000,
+            easing : 'linear',
+        })
+        // .add({
+        //     targets :'.block',
+        //     display : 'inline-block',
+        //     translateX : [0,-500],
+        //     opacity : [1,0.7],
+        //     scale : [1,0.5],
+        //     duration : 3000,
+        //     easing : 'linear',
+        // })
+    </script>
+
+
+</html>
